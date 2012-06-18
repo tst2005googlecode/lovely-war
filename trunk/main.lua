@@ -1,6 +1,8 @@
 
 require('externallibs/middleclass/middleclass')
 
+require('objects')
+
 function love.load()
 end
 
