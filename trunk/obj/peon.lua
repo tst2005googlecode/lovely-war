@@ -1,7 +1,7 @@
 peon = class('peon', baseObj)
 
 function peon:initialize(x, y, team)
-   baseObj.initialize(self, x, y, 100, team)
+   baseObj.initialize(self, x, y, 100, team, 1)
 end
 
 function peon:setPos(x, y)
