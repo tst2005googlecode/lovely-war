@@ -1,8 +1,9 @@
 baseObj = class('baseObj')
 
-function baseObj:initialize(x, y, life, team)
+function baseObj:initialize(x, y, life, team, size)
    self.x = x
    self.y = y
+   self.size = size
    self.team = team
    self.life = life
    table.insert(objects, self)
