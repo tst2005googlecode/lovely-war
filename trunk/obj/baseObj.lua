@@ -16,7 +16,7 @@ function baseObj:initialize(x, y, life, team, size)
 
 end
 
-function baseObj:keyPress(b)
+function baseObj:keyPressed(b)
 end
 
 function baseObj:update(dt)

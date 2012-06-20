@@ -19,7 +19,7 @@ function peon:goTo(x, y)
    print("SEARCH")
    self.goto = pather:searchPath(self.x, self.y, x, y)
    print("END SEARCH")
-   if self.goto ~= nil and #self.goto > 1 then
+   if map[x][y] == 1 and self.goto ~= nil and #self.goto > 1 then
       print(self.goto[1].x, self.goto[1].y)
       print("SMOO")
       self.goto = pather:smooth(self.goto)
