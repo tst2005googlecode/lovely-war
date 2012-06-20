@@ -14,20 +14,6 @@ local i = 0
 local selection = {}
 
 function love.load()
-   p1 = peon:new(2, 2, 1) 
-   p1 = peon:new(4, 2, 1) 
-   p1 = peon:new(5, 2, 1) 
-   p1 = peon:new(6, 2, 1) 
-   p1 = peon:new(7, 2, 1) 
-   p1 = peon:new(8, 2, 1) 
-   p1 = peon:new(9, 2, 1) 
-   p1 = peon:new(10,2, 1) 
-   p1 = peon:new(11, 2, 1) 
-   p1 = peon:new(12, 2, 1) 
-   p1 = peon:new(13, 2, 1) 
-   p1 = peon:new(14, 2, 1) 
-   p1 = peon:new(15, 2, 1) 
-
    g1 = greatHall:new(3, 2, 1) 
 end
 
@@ -66,9 +52,7 @@ function love.mousepressed(x, y, button)
 	 pather = Jumper(cpy(), 1, true)
 	 pather:setHeuristic('DIAGONAL')
 	 for i,v in ipairs(selection) do
-	    h = math.random(2) - 1
-	    w = math.random(2) - 1
-	    v:goTo(math.floor(x / TILE_X) + h, math.floor(y / TILE_Y) + w)
+	    v:goTo(math.floor(x / TILE_X) + nearest[i % 9 + 1][1], math.floor(y / TILE_Y) + nearest[i % 9 + 1][2])
 	 end
       end      
    end
@@ -95,7 +79,11 @@ function love.mousereleased(x, y, button)
 end
 
 function love.keypressed(k)
-   if k == "p" then
+
+   for i,v in ipairs(objects) do
+      v:keyPressed(k)
+   end
+   if k == "q" then
    local i = 1
    while i < MAP_X do
       local j = 1
