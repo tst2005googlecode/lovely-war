@@ -62,11 +62,15 @@ function love.mousepressed(x, y, button)
       selecting = true
    end
    if button == "r" then
-      pather = Jumper(cpy(), 1, true)
-      pather:setHeuristic('DIAGONAL')
-      for i,v in ipairs(selection) do
-	 v:goTo(math.floor(x / TILE_X), math.floor(y / TILE_Y))
-      end
+      if map[math.floor(x / TILE_X)][math.floor(y / TILE_Y)] == 1 then
+	 pather = Jumper(cpy(), 1, true)
+	 pather:setHeuristic('DIAGONAL')
+	 for i,v in ipairs(selection) do
+	    h = math.random(2) - 1
+	    w = math.random(2) - 1
+	    v:goTo(math.floor(x / TILE_X) + h, math.floor(y / TILE_Y) + w)
+	 end
+      end      
    end
 end
 

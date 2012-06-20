@@ -9,26 +9,25 @@ function peon:keyPress(b)
 end
 
 function peon:goTo(x, y)
-   if map[x][y] == 1 then
-      self.move = true
-      self.patrol = false
---      pather = Jumper(map, 0, true)
---     pather:setHeuristic('DIAGONAL')
-
-      self.g_x = x
-      self.g_y = y
-      print("SEARCH")
-      self.goto = pather:searchPath(self.x, self.y, x, y)
-      print("END SEARCH")
-      if self.goto ~= nil and #self.goto > 1 then
-	 print(self.goto[1].x, self.goto[1].y)
-	 print("SMOO")
-	 self.goto = pather:smooth(self.goto)
-	 print("END SMOOO")
-	 table.remove(self.goto, 1)
-      else
-	 self.move = false
-      end
+   self.move = true
+   self.patrol = false
+   --      pather = Jumper(map, 0, true)
+   --     pather:setHeuristic('DIAGONAL')
+   
+   self.g_x = x
+   self.g_y = y
+   print("SEARCH")
+   self.goto = pather:searchPath(self.x, self.y, x, y)
+   print("END SEARCH")
+   if self.goto ~= nil and #self.goto > 1 then
+      print(self.goto[1].x, self.goto[1].y)
+      print("SMOO")
+      self.goto = pather:smooth(self.goto)
+      print("END SMOOO")
+      table.remove(self.goto, 1)
+      self.try = self.try + 1   
+   else
+      self.move = false
    end
 end
 
@@ -43,6 +42,8 @@ function peon:update(dt)
 	    self:goTo(self.g_x, self.g_y)
 	 end
       end
+   else
+      self.try = 0
    end
 end
 

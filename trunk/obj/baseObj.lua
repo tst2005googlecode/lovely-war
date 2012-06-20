@@ -6,12 +6,14 @@ function baseObj:initialize(x, y, life, team, size)
    self.g_x = 0
    self.g_y = 0
    self.move = false
+   self.try = 0
    self.size = size
    self.team = team
    self.life = life
    self.goto = {}
    table.insert(objects, self)
    map[x][y] = self
+
 end
 
 function baseObj:keyPress(b)
