@@ -13,10 +13,29 @@ while i < MAP_X do
    map[i] = {}
    local j = 1
    while j < MAP_Y do
-      map[i][j] = 0
+      map[i][j] = 1
       j = j + 1
    end
    i = i + 1
+end
+
+function cpy()
+   local n = {}
+   local i = 1
+   while i < MAP_X do
+      n[i] = {}
+      local j = 1
+      while j < MAP_Y do
+	 if map[j][i] == 1 then
+	    n[i][j] = 1
+	 else
+	    n[i][j] = 2
+	 end
+	 j = j + 1
+      end
+      i = i + 1
+   end
+   return(n)
 end
 
 require('obj/baseObj')
