@@ -14,6 +14,9 @@ function baseObj:initialize(x, y, life, team, size)
    map[x][y] = self
 end
 
+function baseObj:keyPress(b)
+end
+
 function baseObj:update(dt)
 end
 
@@ -21,7 +24,7 @@ function baseObj:goTo(x, y)
 end
 
 function baseObj:setPos(x, y)
-   map[self.x][self.y] = 0
+   map[self.x][self.y] = 1
    self.x = x
    self.y = y
    map[x][y] = self
@@ -33,7 +36,7 @@ end
 
 function baseObj:die()
    table.remove(objects, self)
-   map[self.x][self.y] = 0
+   map[self.x][self.y] = 1
 end
 
 function baseObj:takeDamage(dam)
