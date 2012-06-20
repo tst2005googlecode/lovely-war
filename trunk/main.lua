@@ -14,7 +14,7 @@ local i = 0
 local selection = {}
 
 function love.load()
-   g1 = greatHall:new(3, 2, 1) 
+   g1 = greatHall:new(10, 10, 1) 
 end
 
 function love.update(dt)
