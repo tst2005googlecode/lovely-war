@@ -21,3 +21,4 @@ end
 
 require('obj/baseObj')
 require('obj/peon')
+require('obj/greatHall')
