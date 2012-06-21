@@ -15,6 +15,7 @@ local selection = {}
 
 function love.load()
    g1 = greatHall:new(10, 10, 1) 
+   g2 = greatHall:new(30, 30, 2)
 end
 
 function love.update(dt)
@@ -80,7 +81,7 @@ end
 
 function love.keypressed(k)
 
-   for i,v in ipairs(objects) do
+   for i,v in ipairs(selection) do
       v:keyPressed(k)
    end
    if k == "q" then

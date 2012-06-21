@@ -25,7 +25,7 @@ function greatHall:keyPressed(b)
    if b == "p" then
       for i,v in ipairs(nearest_build) do
 	 if map[self.x + v[1]][self.y + v[2]] == 1 then
-	    peon:new(self.x + v[1], self.y + v[2], 1)
+	    peon:new(self.x + v[1], self.y + v[2], self.team)
 	    return;
 	 end
       end
